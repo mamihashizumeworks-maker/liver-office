@@ -1,0 +1,1063 @@
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+section {
+    padding: 60px 5%; /* 上下60px、左右5% */
+}
+.inner {
+    max-width: 600px; 
+    margin: 0 auto;    /* 中央寄せ */
+}
+/* --- 共通設定（ヘッダー・フッター共通） --- */
+.site-header, .footer {
+    width: 100%;
+    padding: 15px 5%; /* 上下の余白を統一 */
+    background: #fff;
+}
+
+.header-container, .footer-inner {
+    display: flex;
+    flex-direction: row;      /* 常に横並び */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* 最大幅を統一 */
+    margin: 0 auto;
+}
+
+/* --- ロゴのサイズを統一 --- */
+.logo{
+    margin-left: -9px; /* ネガティブマージンで少し左に引っ張る */
+}
+.logo img {
+    height: 80px; /* ロゴの高さ */
+    width: auto;
+    display: block;
+    margin-left: -5px; /* ネガティブマージンで少し左に引っ張る */
+}
+/* すべてのリストの「点」と「余白」を一括でリセット */
+ul, li {
+    list-style: none; /* リストの点（●）を消す */
+    margin: 0;        /* 外側の余白をリセット */
+    padding: 0;       /* 内側の余白をリセット */
+}
+/* --- ボタンのサイズ感を統一（パディングと角丸） --- */
+.header-btn, .btn-corporate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px; /* 角丸を統一 */
+    font-size: 14px;     /* スマホでの文字サイズを統一 */
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 25px;   /* ボタンの大きさを統一 */
+    white-space: nowrap; /* ボタン内で改行させない */
+    transition: 0.3s;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 1.2; /* 行間を画像のように少し詰め気味に */
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* 太く、大きくする部分（TikTokクリエイター） */
+.black-bold {
+    font-size: 20px;  /* 基準より大きく */
+    font-weight: 900; /* 最大の太さ */
+    letter-spacing: -0.02em;
+    display: inline-block; /* 微調整しやすくするため */
+}
+
+/* 補足部分（になるにあたって、こんな、はありませんか？） */
+.sub-thin {
+    font-size: 17px;  /* メインより一回り小さく */
+    font-weight: 500; /* 中程度の太さ */
+    letter-spacing: 0.05em;
+}
+
+/* 最重要部分（不安） */
+.pink-bold {
+    color: #ff388e;   /* 指定のピンク */
+    font-size: 24px;  /* 「TikTokクリエイター」よりもさらに大きく */
+    font-weight: 900; /* 最大の太さ */
+    letter-spacing: -0.05em;
+}
+
+.blue-bold {
+    color: #45B9D0;   /* 指定のブルー */
+    font-size: 24px;  /* 「TikTokクリエイター」よりもさらに大きく */
+    font-weight: 900; /* 最大の太さ */
+    letter-spacing: -0.05em;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: center;
+}
+.apply-button{
+    display: block;
+    background: linear-gradient(90deg, #1ceb83, #67c8ff);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(103, 200, 255, 0.4);
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.apply-button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* ヘッダー */
+.site-header {
+    position: fixed; /* 常に上部に表示 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-btn {
+    background: linear-gradient(90deg, #1ceb83, #67c8ff);
+    color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(103, 200, 255, 0.4);
+}
+
+.header-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/*メインビジュアル:/
+/* --- [基本] スマホ版のスタイル --- */
+.main-visual {
+    width: 100%;
+    padding-top: 100px; /* ヘッダーの高さ分 */
+    padding-left: 0 !important;  /* 共通設定を打ち消す */
+    padding-right: 0 !important; /* 共通設定を打ち消す */
+}
+
+.mv-container {
+    width: 100%;
+    min-height: 500px; /* スマホでの高さ */
+    background-image: url('img/mainvisual.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* ★スマホでは人物（右側）を優先して表示し、左側を少しカットする */
+    background-position: 85% center; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* スマホは上下均等配置 */
+    position: relative;
+    flex-direction: column;
+}
+
+/* 文字が人物と被っても読みやすくするための工夫 */
+.mv-text-content {
+    width: 90%;
+    text-align: center;
+    background: transparent; /* 背景を透明にする */
+    padding: 30px 20px;
+    border-radius: 20px;
+    z-index: 5;
+    letter-spacing: -0.02em;
+    display: inline-block; /* 微調整しやすくするため */
+}
+.mv-text-content .black-bold{
+    font-size: 30px;  /* 基準より大きく */
+    font-weight: 590; /* 最大の太さ */
+}
+.mv-text-content .sub-thin {
+    font-size: 20px;  /* メインより小さく */
+    font-weight: 500; /* 中程度の太さ */
+}
+.mv-text-content .pink-bold {
+    color: #ff388e;   /* 指定のピンク */
+    font-size: 30px;  
+    font-weight: 900; /* 最大の太さ */
+}
+
+h1 {
+    line-height: 1.4;
+    color: #333;
+}
+
+.sub-copy {
+    font-size: 16px;
+    margin: 8px 0 ;
+    font-weight: 580;
+}
+
+.mv-btn {
+    display: block;
+    background: linear-gradient(90deg, #1ceb83, #67c8ff);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(103, 200, 255, 0.4);
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.mv-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.intro-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 30px 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --- 不安解消セクション --- */
+.section-worries {
+    padding: 60px 5%;
+    background: #fff;
+    text-align: center;
+}
+
+.worries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* スマホ3列 */
+    gap: 20px 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.worry-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.icon-circle img { width: 100%; height: auto; }
+.worry-item p { font-size: 12px;  line-height: 1.3; }
+
+/* アイコン枠の色（画像に合わせて調整） */
+.icon-circle.pink { border-color: #ff388e; background-color:#FBF1FD ;}
+.icon-circle.blue { border-color: #70BBF4; background-color:#FDF3FB ;}
+.icon-circle.orange { border-color: #ffb34a; background-color:#F7F6F5 ;}
+.icon-circle.deep-pink { border-color: #ff388e; background-color:#FCF0F6 ;}
+.icon-circle.light-blue { border-color: #4BB1D9; background-color:#F3F5FF ;}
+.icon-circle.purple { border-color: #a855f7; background-color:#EFEDFD ;}
+
+
+/* --- 解決策セクション --- */
+.section-solution {
+    padding: 60px 5%;
+    background: #FFF6FB; /* セクション全体の背景を薄いピンクに */
+}
+
+.section-solution .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 項目リスト */
+.solution-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 項目同士の隙間 */
+}
+
+.solution-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px; /* ボックス内の余白 */
+    border-radius: 30px; /* 白背景用の角丸 */
+    gap: 20px;
+}
+
+/* ★再現ポイント：1番目と3番目の項目のみ白背景にする */
+.solution-item:nth-child(1),
+.solution-item:nth-child(3) {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02); /* 控えめな影 */
+}
+
+/* ★再現ポイント：偶数番目（2, 4）は画像とテキストを反転 */
+.solution-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* 画像エリア：完全な正円を維持 */
+.solution-img {
+    width: 35%; /* 画面幅に対する比率 */
+    flex-shrink: 0;/* 画像が潰れないように固定 */
+    aspect-ratio: 1 / 1; /* 正方形を維持 */
+}
+
+.solution-img img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 正方形を保つ */
+    object-fit: cover;
+    border-radius: 50%; /* 正円にする */
+    display: block;
+}
+
+/* テキストエリア */
+.solution-info {
+    width: 55%;
+    padding: 0; /* 余計なパディングをリセット */
+}
+
+.sol-head {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+/* タイトル：2枚目画像に合わせて改行やサイズ調整 */
+.solution-info h3 {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.4;
+    color: #333;
+}
+
+
+/* 説明文 */
+.solution-info p {
+    font-size: 13px;/* スマホ横並び時は文字を少し小さくすると綺麗です */
+    line-height: 1.6;
+    color: #555;
+    margin-top: 8px;
+}
+
+
+/* --- 魅力セクション --- */
+.section-merit {
+    padding: 50px 5%;
+    /* 背景画像の設定 */
+    background-image: url('img/background-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* スクロール時に背景を固定（お好みで） */
+    text-align: center;
+}
+
+/* 4つの丸いアイテムのグリッド */
+/* 丸い円の基本デザイン */
+.merit-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* 白文字 */
+    text-align: center;
+    border: 4px solid #fff; /* 白いフチ */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* 外側の影 */
+    margin-bottom: 15px;
+}
+
+/* 2x2のグリッド配置 */
+.merit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ★横2列に固定 */
+    gap: 20px 10px; /* 上下20px、左右10pxの隙間 */
+    max-width: 340px; /* スマホでバラけないよう幅を制限 */
+    margin: 0 auto;
+}
+/* 文字の太さと影（読みやすくするためのドロップシャドウ） */
+.merit-sub, .merit-main {
+    font-weight: 900;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); /* 文字の影 */
+    line-height: 1.2;
+}
+
+.merit-sub {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.merit-main {
+    font-size: 20px;
+}
+
+/* --- 各項目の色再現（グラデーションで深みを出しています） --- */
+
+/* 1. ピンク */
+.color-pink {
+    background: linear-gradient(135deg, #F962D3, #ff388e);
+}
+
+/* 2. 水色 */
+.color-blue {
+    background: linear-gradient(135deg, #47D3FA, #4ac6ff);
+}
+
+/* 3. 緑 */
+.color-orange {
+    background: linear-gradient(135deg, #A2DCAC,#8ddd9a );
+}
+
+/* 4. オレンジ */
+.color-purple {
+    background: linear-gradient(135deg, #FFE150, #ffb34a);
+}
+
+/* --- おすすめセクション --- */
+.section-recommend {
+    padding: 60px 5% 80px;
+    background-image: url('img/background-img.jpg'); /* 共通背景 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* スクロール時に背景を固定 */
+    text-align: center;
+}
+
+/* 紙吹雪がある白いボックスエリア */
+.recommend-box {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    padding: 40px 20px;
+    position: relative;
+}
+/* ==========================================
+   左右5個ずつのキラキラ装飾
+   ========================================== */
+.deco-shapes .shape {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* 左側 5個 (上から順に配置を画像に似せる) */
+.s1 { background: #d3d3d3; top: 15%; left: -3%; transform: rotate(20deg); }
+.s2 { background: #FFF832; top: 36%; left: 4%; transform: rotate(-10deg);}
+.s3 { background: #06C755; top: 50%; left: -1%; transform: rotate(45deg); }
+.s4 { background: #FF00BF; top: 65%; left: 4%; transform: rotate(-15deg); }
+.s5 { background: #FFF832; top: 80%; left: -1%; transform: rotate(10deg); }
+
+/* 右側 5個 */
+.s6 { background: #06C755; top: 15%; right:-1%; transform: rotate(-25deg); }
+.s7 { background: #FF00BF; top: 35%; right: -3%; transform: rotate(15deg); }
+.s8 { background: #d3d3d3; top: 60%; right: -3%; transform: rotate(-10deg); }
+.s9 { background: #06C755; top: 78%; right: 4%; transform: rotate(30deg); }
+.s10 { background: #FFF832; top: 93%; right: 0%; transform: rotate(-15deg); }
+
+.recommend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 項目同士の隙間 */
+    margin: 0 15px;
+}
+
+/* 基本のアイテムスタイル（枠付きカード） */
+.recommend-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 50px; /* 角を丸くしてカプセル型に */
+    border: 3px solid transparent; /* 枠線の太さ */
+    text-align: left;
+}
+
+/* ピンク枠の設定 */
+.recommend-item.border-pink {
+    border-color: #ff388e;
+}
+.check-icon.bg-pink {
+    background: #ff388e;
+}
+
+/* 水色枠の設定 */
+.recommend-item.border-blue {
+    border-color: #4ac6ff;
+}
+.check-icon.bg-blue {
+    background: #4ac6ff;
+}
+
+/* チェックアイコン */
+.check-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.recommend-item p {
+    font-size: 15px;
+    font-weight: 900;
+    color: #333;
+}
+
+/* セクション全体 */
+.section-voice {
+    padding: 60px 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* ボイスカードのデザイン */
+.voice-card {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    border: 3px solid #4ac6ff; /* 画像通りの水色枠 */
+    border-radius: 40px; /* 大きな角丸 */
+    padding: 30px 20px;
+    background: #fff;
+    text-align: left;
+    position: relative;
+}
+
+/* 名前と写真のレイアウト */
+.voice-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.voice-name {
+    font-size: 24px;
+    font-weight: 900;
+    color: #333;
+    margin-right: 20px;
+}
+
+.voice-img {
+    width: 80px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.voice-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* キャッチコピー */
+.voice-catch {
+    font-size: 14px;
+    font-weight: 900;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* 本文 */
+.voice-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 応募ボタン（ヘッダーのデザインを流用） */
+.apply-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #1ceb83, #67c8ff);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 60px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(103, 200, 255, 0.4);
+    margin-top: 20px;
+}
+
+/* --- 流れセクション --- */
+.section-flow {
+    padding: 80px 5%;
+    background: #fff;
+}
+
+.section-flow .inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ステップ全体のコンテナ（縦線のため） */
+.step-container {
+    position: relative;
+    padding-left: 20px;
+}
+
+/* 中央の縦線 */
+.step-line {
+    position: absolute;
+    left: 55px; /* 円の中央に合わせる */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #333;
+    z-index: 1;
+}
+
+.step-flow {
+    position: relative;
+    z-index: 2;
+}
+
+/* 各ステップの並び */
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+/* 左側の円 */
+.step-circle {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border: 2px solid #333; /* デフォルト */
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.step-label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.step-num {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* 右側のテキストエリア */
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.step-text-box {
+    border: 2px solid #ccc; /* デフォルト */
+    border-radius: 15px;
+    padding: 12px 15px;
+    background: #fff;
+}
+
+.step-text-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+/* --- テーマカラーの適用 --- */
+
+/* PINK (Step 1) */
+.item-pink .step-circle { border-color: #ff388e; color: #ff388e; }
+.item-pink .step-text-box { border-color: #ff388e; }
+
+/* GREEN (Step 2) */
+.item-green .step-circle { border-color: #b3ff38; color: #b3ff38; }
+.item-green .step-text-box { border-color: #b3ff38; }
+
+/* BLUE (Step 3) */
+.item-blue .step-circle { border-color: #4ac6ff; color: #4ac6ff; }
+.item-blue .step-text-box { border-color: #4ac6ff; }
+
+/* YELLOW (Step 4) */
+.item-yellow .step-circle { border-color: #fff138; color: #fff138; }
+.item-yellow .step-text-box { border-color: #fff138; }
+
+
+/* --- FAQセクション全体 --- */
+.section-faq {
+    padding: 80px 5%;
+    /* 指定の背景画像を適用 */
+    background-image: url('img/faq-background-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* スクロール時に背景を固定*/
+    color: #fff;
+    text-align: center;
+}
+
+.faq-title {
+    margin-bottom: 50px;
+    line-height: 1.2;
+    color: #FFF0F9;
+    font-size: 20px;
+}
+
+.faq-title .en {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+/* FAQコンテナ */
+.faq-container {
+    max-width: 650px;
+    margin: 0 auto 60px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 質問(Q)部分 */
+.faq-q {
+    background: #fff; /* Qは白背景 */
+    color: #333;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-weight: 900;
+    position: relative;
+}
+
+.q-icon {
+    color: #4ac6ff; /* 水色のQ */
+    font-size: 26px;
+    margin-right: 15px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+/* 矢印アイコン（Vの形） */
+.faq-arrow-icon {
+    position: absolute;
+    right: 25px;
+    width: 12px;   /* Vの幅 */
+    height: 12px;  /* Vの高さ */
+    /* 上と左の線を消して、右と下だけ残すことで「V」に見せる */
+    border-right: 2px solid #333; /* 文字と同じ黒色 */
+    border-bottom: 2px solid #333; /* 文字と同じ黒色 */
+    /* 最初は下を向くように45度回転させる */
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%; /* 上下中央に配置 */
+    transition: transform 0.3s ease; /* アニメーション */
+}
+
+/* Aが開いた時（is-openクラスがついた時） */
+.faq-q.is-open .faq-arrow-icon {
+    /* 225度回転させて「Λ」の形にする（-135度でもOK） */
+    transform: translateY(-25%) rotate(225deg);
+}
+/* 回答(A)部分 */
+.faq-a {
+    background: rgba(253, 240, 246, 0.95); /* 画像の雰囲気に合わせた薄ピンク（少し透過） */
+    color: #333;
+    padding: 20px 25px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    border-top: 1px solid #eee;
+}
+
+.a-icon {
+    color: #ff388e; /* ピンクのA */
+    font-size: 22px;
+    font-weight: 900;
+    margin-right: 15px;
+    margin-top: 2px;
+}
+
+.faq-a p {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+
+/* PC版の調整 */
+@media (min-width: 769px) {
+    .faq-q { padding: 22px 35px; }
+    .faq-a { padding: 30px 35px; }
+    .apply-button-large { font-size: 24px; }
+}
+
+/* 巨大応募ボタン */
+.faq-btn-area {
+    display: flex;
+    justify-content: center;
+}
+
+.apply-button-large {
+    display: inline-block;
+    background: linear-gradient(90deg, #1ceb83, #67c8ff);
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 50px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 60px;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: 0 10px 25px rgba(103, 200, 255, 0.4);
+    transition: transform 0.3s;
+}
+
+.apply-button-large:hover {
+    transform: scale(1.03);
+}
+
+/* --- フッター基本設定（全デバイス共通・横並び） --- */
+.footer {
+    border-top: 1px solid #f0f0f0; /* 境界をうっすら入れる場合 */
+}
+
+/* コーポレートサイトボタン（楕円形） */
+.btn-corporate {
+    border: 1px solid #333; /* 細い黒枠 */
+    color: #333;
+    transition: all 0.3s ease;
+}
+/* ホバー時の演出 */
+.btn-corporate:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+
+/* PC版の設定（769px以上） */
+@media (min-width: 769px) {
+ /* 共通 */  
+    section {
+        padding: 100px 5%; /* 上下を100pxに広げる */
+    }
+    .intro-text ,
+    .worry-item p,
+    .solution-info p,
+    .merit-sub,
+    .recommend-item p,
+    .voice-text,
+    .step-text-box p,
+    .faq-a p
+    {
+        font-size: 18px; /* スマホが14〜16pxなら、PCは18px前後が読みやすい */
+    }
+    .inner {
+       max-width: 1000px; /* 1000px〜1200pxが一般的 */
+    }
+    /* 全てのセクション見出しを一括調整 */
+    .section-title {
+        margin-bottom: 40px;
+    }
+    .black-bold { font-size: 35px; }
+    .sub-thin{ font-size: 30px; }
+    .pink-bold { font-size: 40px; }
+    .blue-bold { font-size: 40px; }
+
+    /* 1. メインの応募ボタン（一番目立つやつ） */
+    .apply-button, .mv-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 500px;    /* 横幅をしっかり広げる */
+        margin: 0 auto;
+        padding: 25px 40px;  /* 上下25px、左右40pxで厚みを出す */
+        font-size: 24px;     /* 文字を大きく（スマホの約1.5倍） */
+        font-weight: bold;
+        border-radius: 50px; /* 角を丸くして高級感を出す */
+        transition: transform 0.3s; /* ホバー時の動き用 */
+    }
+
+    /* ホバー（マウスを乗せた時）の動きを入れるとPC版っぽくなります */
+    .apply-button:hover, .mv-btn:hover {
+        transform: scale(1.05); /* 少し大きく浮かび上がる */
+        filter: brightness(1.1); /* 少し明るくなる */
+
+    }
+    .logo img {
+        height: 65px; /* PCでは大きく表示 */
+    }
+
+/* ヘッダー */
+    /* 2. ヘッダーのボタン（少し控えめ、でも見やすく） */
+    .header-btn {
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+/*メインビジュアル*/
+    .mv-container {
+        display: flex;
+        flex-direction: column;   /* 中身の箱を「縦」に並べる */
+        align-items: flex-start;  /* 全体を「左寄せ」にする */
+        height: 700px;
+        background-image: url('img/mainvisual.jpg');
+        background-size: cover;
+        background-position: right center;
+        padding-left: 4%;        /* これで左側に空間を作る */
+        padding-top: 27px;   
+    }
+    /* 文字の箱 */
+    .mv-text-content {
+        width: 550px;
+        text-align: left;
+        background: transparent;
+        padding: 120px 20px 90px;
+    }
+    .mv-text-content .black-bold {
+        font-size: 50px;
+    }
+    .mv-text-content .sub-thin {
+        font-size: 30px;
+    }
+    .mv-text-content .pink-bold {
+        font-size: 55px;
+    }
+    .sub-copy{
+        font-size: 25px;
+    }
+
+    /* ボタンの箱 */
+    .mv-btn-content {
+        width: 550px;             /* 文字の箱と同じ幅にする */
+        text-align: left;         /* ボタンを左に寄せる */
+        margin-bottom: 500px;
+    }
+
+    .mv-btn {
+        display: inline-block;
+        padding: 20px 50px;
+        font-size: 20px;
+    }
+    .intro-text {
+    font-size: 22px;
+    }
+/* --- 不安解消セクション --- */
+    .icon-circle{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid #ddd;
+    }
+    .icon-circle img { width: 88%; height: auto; }
+
+/* --- 解決策セクション --- */
+    .section-solution {
+        padding: 80px 5%;
+    }
+    
+    .solution-item {
+        padding: 50px 60px;
+        gap: 60px;
+    }
+
+    .solution-img {
+        width: 300px; /* PCでは画像の最大サイズを固定 */
+    }
+    .solution-info h3 {
+    font-size: 24px;
+}
+
+    
+/* --- 魅力セクション --- */
+    .merit-circle {
+        width: 180px;
+        height: 180px;
+    }
+    .merit-sub { font-size: 18px; }
+    .merit-main { font-size: 26px; }
+/* --- おすすめセクション --- */
+    .section-recommend .section-title br{
+        display: none;
+    }
+/* --- ライバーの声セクション --- */
+    .voice-card {
+        max-width: 600px;
+        padding: 40px;
+    }
+    .voice-img {
+        width: 100px;
+        height: 125px;
+    }
+    .voice-catch {
+        font-size: 24px;
+    }
+
+/* --- 流れセクション --- */
+.section-flow .section-title br{
+        display: none;
+    }
+        .section-flow .inner { max-width: 800px; }
+    .step-line { left: 65px; }
+    .step-circle { width: 90px; height: 90px; }
+    .step-label{font-size: 15px;}
+    .step-num { font-size: 32px; }
+    .step-text-box { padding: 20px 30px; }
+    .step-content h3{font-size: 24px;}
+/* --- FAQセクション全体 --- */
+    .faq-title .en{font-size: 40px;}
+    .faq-title{font-size: 30px;}
+    .faq-q { padding: 22px 35px; }
+    .faq-q p{font-size: 18px;}
+    .faq-a { padding: 30px 35px; }
+    .apply-button-large { font-size: 24px; }
+
+
+/* --- フッターセクション全体 --- */
+    .footer {
+        padding: 40px 5%;
+    }
+        /* 3. フッターのリンク（ボタン形式にする場合） */
+    .btn-corporate {
+        display: inline-block;
+        padding: 15px 40px;
+        font-size: 16px;
+        border: 1px solid #333; /* 枠線だけのデザインなど */
+        text-decoration: none;
+        color: #333;
+    }
+}
